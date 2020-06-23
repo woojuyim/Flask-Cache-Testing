@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Add Cache</title>
+    <style>
+      .alert {
+        padding: 20px;
+        background-color: rgb(0, 128, 0);
+        color: white;
+      }
+
+      .false {
+        padding: 20px;
+        background-color: rgb(128, 0, 0);
+        color: white;
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+      button {
+          padding: 10px;
+          margin-left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+                <a href="cache"> Get Cache Value</a>
+        <a href="allcache"> All Cache Values </a>
+        <a href="newcache"> Add New Cache </a>
+      </nav>
+    </div>
+    <br><br>
+    <div class="container">
+        <form class="form-control-lg" method="GET" action="addCache">
+          <div class="row">
+            <div class="col-lg-4">
+              Enter a Key
+            </div>
+            <div class="col-md-3">
+              <input type = "text" name = "key" placeholder ="Key">
+            </div>
+            <br><br>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-lg-4">
+              Enter a Value
+            </div>
+            <div class="col-md-3">
+              <input type="text" name="value" placeholder ="Value">
+            </div>
+          </div>
+		      <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    {% if success == "success" %}
+    <div class="container">
+      <div class="alert">
+        <span
+          class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>Success!</strong> The data has been added successfully.
+      </div>
+    </div>
+    {% endif %}
+    {% if success == "failure" %}
+    <div class="container">
+      <div class="false">
+        <span
+          class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>Failure!</strong> There is a missing data parameter
+      </div>
+    </div>
+    {% endif %}
+  </body>
+</html>

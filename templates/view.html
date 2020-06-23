@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>View Data</title>
+    <style>
+      #tabledata {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #tabledata td,
+      #tabledata th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #tabledata tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #tabledata tr:hover {
+        background-color: #ddd;
+      }
+
+      #tabledata th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <a href="cache"> Get Cache Value</a>
+        <a href="allcache"> All Cache Values </a>
+        <a href="newcache"> Add New Cache </a>
+      </nav>
+    </div>
+    <br><br><br><br><br><br>
+    <div class="container">
+      <table id="tabledata">
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+        {% for key in data %}
+        <tr>
+          <td>{{ key }}</td>
+          <td>{{ data[key] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <br><br><br><br><br><br>
+  </body>
+</html>
